@@ -1,0 +1,221 @@
+/* Auth-specific styles for the login journey */
+
+/* ---- Inputs ---- */
+.authInput {
+  width: 100%;
+  height: 42px;
+  padding: 0 12px;
+  border-radius: 8px;
+  border: 1px solid var(--input);
+  background: var(--background);
+  font-size: 14px;
+  font-family: var(--font-sans);
+  color: var(--foreground);
+  outline: none;
+  transition: border-color .12s ease, box-shadow .12s ease, background .12s ease;
+}
+.authInput::placeholder { color: var(--muted-foreground); }
+.authInput:hover { border-color: oklch(0.86 0 0); }
+.authInput:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgb(75 63 247 / 0.16);
+}
+.authInputWrap .authInput { padding-right: 44px; }
+
+/* ---- OTP cells ---- */
+.otpCell {
+  width: 48px;
+  height: 56px;
+  border-radius: 8px;
+  border: 1px solid var(--input);
+  background: var(--background);
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  color: var(--foreground);
+  outline: none;
+  caret-color: var(--primary);
+  transition: border-color .12s, box-shadow .12s, background .12s;
+}
+.otpCell:hover { border-color: oklch(0.86 0 0); }
+.otpCellFilled { background: rgb(75 63 247 / 0.04); border-color: oklch(0.86 0 0); }
+.otpCell:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgb(75 63 247 / 0.18);
+}
+.otpCellErr {
+  border-color: oklch(0.577 0.245 27.325) !important;
+  box-shadow: 0 0 0 4px oklch(0.577 0.245 27.325 / 0.12) !important;
+}
+
+@media (max-width: 480px) {
+  .otpCell { width: 42px !important; height: 52px !important; font-size: 20px !important; }
+}
+
+/* ---- Custom checkbox ---- */
+.checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  border: 1px solid var(--input);
+  background: var(--background);
+  display: inline-grid;
+  place-content: center;
+  cursor: pointer;
+  transition: background .12s, border-color .12s;
+}
+.checkbox:hover { border-color: oklch(0.78 0 0); }
+.checkbox:checked { background: var(--primary); border-color: var(--primary); }
+.checkbox:checked::after {
+  content: "";
+  width: 9px;
+  height: 9px;
+  background: white;
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") center / contain no-repeat;
+          mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>") center / contain no-repeat;
+}
+.checkbox:focus-visible { box-shadow: 0 0 0 4px rgb(75 63 247 / 0.18); }
+
+/* ---- Buttons ---- */
+.btnPrimary {
+  width: 100%;
+  height: 42px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background .12s, transform .06s, box-shadow .12s;
+  box-shadow: 0 1px 0 0 oklch(0.145 0 0 / 0.04), inset 0 1px 0 0 rgb(255 255 255 / 0.10);
+}
+.btnPrimary:hover:not(:disabled) { background: oklch(from var(--primary) calc(l * 0.88) c h); }
+.btnPrimary:active:not(:disabled) { transform: translateY(1px); }
+.btnPrimary:focus-visible { outline: none; box-shadow: 0 0 0 4px rgb(75 63 247 / 0.30); }
+.btnPrimary:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.btnOutline {
+  width: 100%;
+  height: 42px;
+  border: 1px solid var(--border);
+  background: var(--background);
+  color: var(--foreground);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background .12s, border-color .12s, transform .06s;
+}
+.btnOutline:hover { background: var(--muted); }
+.btnOutline:active { transform: translateY(1px); }
+.btnOutline:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgb(75 63 247 / 0.22);
+  border-color: var(--primary);
+}
+
+.btnLink {
+  background: transparent;
+  border: 0;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  align-self: center;
+}
+.btnLink:hover:not(:disabled) { text-decoration: underline; text-underline-offset: 4px; }
+.btnLink:disabled { color: var(--muted-foreground); cursor: not-allowed; }
+
+/* ---- Reveal (show/hide password) ---- */
+.reveal {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border: 0;
+  background: transparent;
+  color: var(--muted-foreground);
+  border-radius: var(--radius-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background .12s, color .12s;
+}
+.reveal:hover { background: var(--muted); color: var(--foreground); }
+
+/* ---- Links ---- */
+.link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--primary);
+  text-decoration: none;
+}
+.link:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+.linkMuted {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.linkMuted:hover { color: var(--foreground); }
+.arrow { display: inline-block; transition: transform .12s; }
+.linkMuted:hover .arrow { transform: translateX(-2px); }
+
+/* ---- Inline status banners ---- */
+.authError {
+  background: oklch(0.577 0.245 27.325 / 0.08);
+  color: oklch(0.55 0.20 27);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  font-size: 13px;
+  font-family: var(--font-sans);
+  text-align: center;
+}
+.authInfo {
+  background: rgb(75 63 247 / 0.08);
+  color: var(--primary);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  font-size: 13px;
+  font-family: var(--font-sans);
+  text-align: center;
+}
+
+/* ---- Screen transitions ---- */
+@keyframes pageIn     { from { opacity: 0; transform: translateY(8px);  } to { opacity: 1; transform: none; } }
+@keyframes pageInBack { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+.screenFwd  { animation: pageIn     320ms cubic-bezier(.2,.7,.2,1) both; }
+.screenBack { animation: pageInBack 320ms cubic-bezier(.2,.7,.2,1) both; }
+
+/* ---- Spinner ---- */
+@keyframes spin { to { transform: rotate(360deg); } }
+.spin { animation: spin 0.8s linear infinite; }
+
+/* ---- Toast ---- */
+@keyframes slidein { from { opacity: 0; transform: translateX(12px); } to { opacity: 1; transform: none; } }
+.toastSlide { animation: slidein .18s ease-out; }
