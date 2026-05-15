@@ -205,28 +205,28 @@ export default function Page() {
               <div className="space-y-2">
                 <p className="text-xs font-mono text-muted-foreground">Variants</p>
                 <div className="flex flex-wrap gap-2">
-                  <Button variant="default">Default</Button>
-                  <Button variant="secondary">Secondary</Button>
-                  <Button variant="outline">Outline</Button>
-                  <Button variant="ghost">Ghost</Button>
-                  <Button variant="destructive">Destructive</Button>
-                  <Button variant="link">Link</Button>
+                  <Button variant="default" className="rounded-md">Default</Button>
+                  <Button variant="secondary" className="rounded-md">Secondary</Button>
+                  <Button variant="outline" className="rounded-md">Outline</Button>
+                  <Button variant="ghost" className="rounded-md">Ghost</Button>
+                  <Button variant="destructive" className="rounded-md">Destructive</Button>
+                  <Button variant="link" className="rounded-md">Link</Button>
                 </div>
               </div>
               <div className="space-y-2">
                 <p className="text-xs font-mono text-muted-foreground">Sizes</p>
                 <div className="flex flex-wrap items-center gap-2">
-                  <Button size="xs">Extra Small</Button>
-                  <Button size="sm">Small</Button>
-                  <Button size="default">Default</Button>
-                  <Button size="lg">Large</Button>
+                  <Button size="xs" className="rounded-md">Extra Small</Button>
+                  <Button size="sm" className="rounded-md">Small</Button>
+                  <Button size="default" className="rounded-md">Default</Button>
+                  <Button size="lg" className="rounded-md">Large</Button>
                 </div>
               </div>
               <div className="space-y-2">
                 <p className="text-xs font-mono text-muted-foreground">States</p>
                 <div className="flex gap-2">
-                  <Button disabled>Disabled</Button>
-                  <Button variant="outline" disabled>Disabled Outline</Button>
+                  <Button disabled className="rounded-md">Disabled</Button>
+                  <Button variant="outline" disabled className="rounded-md">Disabled Outline</Button>
                 </div>
               </div>
             </div>
@@ -249,11 +249,11 @@ export default function Page() {
             <div className="rounded-xl border p-6 grid sm:grid-cols-2 gap-4 max-w-xl">
               <div className="space-y-1.5">
                 <Label htmlFor="ex-email">Email address</Label>
-                <Input id="ex-email" type="email" placeholder="you@example.com" />
+                <Input id="ex-email" type="email" placeholder="you@example.com" className="rounded-md" />
               </div>
               <div className="space-y-1.5">
                 <Label htmlFor="ex-disabled">Disabled field</Label>
-                <Input id="ex-disabled" disabled placeholder="Not editable" />
+                <Input id="ex-disabled" disabled placeholder="Not editable" className="rounded-md" />
               </div>
             </div>
           </Sub>
@@ -264,7 +264,7 @@ export default function Page() {
               <div className="space-y-1.5">
                 <Label>Framework</Label>
                 <Select>
-                  <SelectTrigger className="w-full">
+                  <SelectTrigger className="w-full rounded-md">
                     <SelectValue placeholder="Choose a framework…" />
                   </SelectTrigger>
                   <SelectContent>
@@ -337,8 +337,8 @@ export default function Page() {
                   </p>
                 </CardContent>
                 <CardFooter>
-                  <Button size="sm">View Project</Button>
-                  <Button size="sm" variant="ghost">Cancel</Button>
+                  <Button size="sm" className="rounded-md">View Project</Button>
+                  <Button size="sm" variant="ghost" className="rounded-md">Cancel</Button>
                 </CardFooter>
               </Card>
               <Card size="sm">
@@ -358,7 +358,7 @@ export default function Page() {
           {/* Dialog */}
           <Sub title="Dialog">
             <div className="rounded-xl border p-6">
-              <Button variant="outline" onClick={() => setDialogOpen(true)}>
+              <Button variant="outline" className="rounded-md" onClick={() => setDialogOpen(true)}>
                 Open Dialog
               </Button>
               <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
@@ -371,7 +371,7 @@ export default function Page() {
                     </DialogDescription>
                   </DialogHeader>
                   <DialogFooter showCloseButton>
-                    <Button onClick={() => setDialogOpen(false)}>Continue</Button>
+                    <Button className="rounded-md" onClick={() => setDialogOpen(false)}>Continue</Button>
                   </DialogFooter>
                 </DialogContent>
               </Dialog>
@@ -382,22 +382,22 @@ export default function Page() {
           <Sub title="Sonner">
             <div className="rounded-xl border p-6">
               <div className="flex flex-wrap gap-2">
-                <Button variant="outline" onClick={() => toast("Event has been created")}>
+                <Button variant="outline" className="rounded-md" onClick={() => toast("Event has been created")}>
                   Default
                 </Button>
-                <Button variant="outline" onClick={() => toast.success("Changes saved successfully")}>
+                <Button variant="outline" className="rounded-md" onClick={() => toast.success("Changes saved successfully")}>
                   Success
                 </Button>
-                <Button variant="outline" onClick={() => toast.error("Something went wrong")}>
+                <Button variant="outline" className="rounded-md" onClick={() => toast.error("Something went wrong")}>
                   Error
                 </Button>
-                <Button variant="outline" onClick={() => toast.warning("Unsaved changes detected")}>
+                <Button variant="outline" className="rounded-md" onClick={() => toast.warning("Unsaved changes detected")}>
                   Warning
                 </Button>
-                <Button variant="outline" onClick={() => toast.info("A new version is available")}>
+                <Button variant="outline" className="rounded-md" onClick={() => toast.info("A new version is available")}>
                   Info
                 </Button>
-                <Button variant="outline" onClick={() => toast.loading("Uploading file…")}>
+                <Button variant="outline" className="rounded-md" onClick={() => toast.loading("Uploading file…")}>
                   Loading
                 </Button>
               </div>
